@@ -103,7 +103,7 @@
             <img src="new logo.jpg" alt="Logo de l'entreprise">
         </div>
         <p>Votre inscription au Buyer Meeting Lotte a été enregistrée avec succès. Nous vous contacterons bientôt pour plus de détails.</p>
-        <button onclick="window.location.href='/'">Retour à l'accueil</button>
+        <button onclick="window.location.href='/'">Retour au formulaire</button>
     </div>
 </body>
 </html>
