@@ -18,7 +18,7 @@
         .form-container {
             background-color: #fff;
             padding: 30px;
-            border: 2px solid #022641; /* Nouveau bleu foncé */
+            border: 2px solid #022641; /* Bleu foncé de votre entreprise */
             border-radius: 10px;
             max-width: 600px;
             width: 100%;
@@ -26,7 +26,7 @@
         }
         h1 {
             text-align: center;
-            color: #022641; /* Titre en bleu foncé */
+            color: #d31444; /* Titre en rouge de votre entreprise */
             margin-bottom: 10px;
         }
         .logo-container {
@@ -34,7 +34,7 @@
             margin-bottom: 25px;
         }
         .logo-container img {
-            max-width: 300px; /* Logo plus grand */
+            max-width: 300px;
             height: auto;
         }
         label {
@@ -47,15 +47,19 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 2px solid #022641; /* Bordures en bleu foncé */
+            border: 1px solid #022641; /* Bordures en bleu foncé */
             border-radius: 5px;
             box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            border: 2px solid #d31444; /* Bordure rouge au focus */
+            outline: none;
         }
         input[type="file"] {
             padding: 3px;
         }
         button {
-            background-color: #022641; /* Bouton en bleu foncé */
+            background-color: #d31444; /* Bouton en rouge de votre entreprise */
             color: white;
             padding: 12px 20px;
             border: none;
@@ -64,9 +68,10 @@
             width: 100%;
             font-size: 16px;
             font-weight: bold;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #01182a; /* Version plus foncée au survol */
+            background-color: #b01138; /* Version plus foncée au survol */
         }
         
         /* Style pour les boutons radio oui/non */
@@ -82,7 +87,7 @@
             justify-content: center;
             align-items: center;
             background-color: #fff;
-            border: 2px solid #022641; /* Bordures en bleu foncé */
+            border: 1px solid #022641; /* Bordures en bleu foncé */
             border-radius: 5px;
             padding: 10px;
             cursor: pointer;
@@ -103,6 +108,16 @@
             border-color: #022641;
         }
         
+        /* Ajout d'une bordure supérieure avec dégradé des couleurs de l'entreprise */
+        .form-container:before {
+            content: '';
+            display: block;
+            height: 4px;
+            background: linear-gradient(to right, #022641 0%, #022641 50%, #d31444 50%, #d31444 100%);
+            margin: -30px -30px 20px -30px;
+            border-radius: 8px 8px 0 0;
+        }
+        
         @media (max-width: 600px) {
             .form-container {
                 padding: 20px;
@@ -113,7 +128,10 @@
                 padding: 20px 0;
             }
             .logo-container img {
-                max-width: 220px; /* Logo un peu plus petit sur mobile mais toujours grand */
+                max-width: 220px;
+            }
+            .form-container:before {
+                margin: -20px -20px 20px -20px;
             }
         }
     </style>
