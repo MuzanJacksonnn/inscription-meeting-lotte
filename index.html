@@ -27,7 +27,15 @@
         h1 {
             text-align: center;
             color: #0f172a;
+            margin-bottom: 10px;
+        }
+        .logo-container {
+            text-align: center;
             margin-bottom: 20px;
+        }
+        .logo-container img {
+            max-width: 200px;
+            height: auto;
         }
         label {
             display: block;
@@ -60,7 +68,7 @@
             background-color: #7f1624;
         }
         
-        /* Style pour les boutons radio oui/non */
+        /* Style pour les boutons radio oui/non - Nouvelle couleur */
         .radio-group {
             display: flex;
             margin-bottom: 15px;
@@ -73,7 +81,7 @@
             justify-content: center;
             align-items: center;
             background-color: #fff;
-            border: 2px solid #a21d2e;
+            border: 2px solid #3b82f6; /* Bleu */
             border-radius: 5px;
             padding: 10px;
             cursor: pointer;
@@ -89,9 +97,9 @@
         }
         
         .radio-group input[type="radio"]:checked + label {
-            background-color: #a21d2e;
+            background-color: #3b82f6; /* Bleu */
             color: white;
-            border-color: #a21d2e;
+            border-color: #3b82f6;
         }
         
         @media (max-width: 600px) {
@@ -103,12 +111,22 @@
                 align-items: flex-start;
                 padding: 20px 0;
             }
+            .logo-container img {
+                max-width: 150px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="form-container">
         <h1>Inscription Buyer Meeting Lotte</h1>
+        
+        <!-- Conteneur pour le logo -->
+        <div class="logo-container">
+            <!-- Remplacez "votre-logo.png" par le chemin vers votre logo -->
+            <img src="votre-logo.png" alt="Logo de l'entreprise">
+        </div>
+        
         <form name="buyer-meeting" method="POST" data-netlify="true" action="/merci.html">
             <label>Nom complet :</label>
             <input type="text" name="nom-complet" required>
