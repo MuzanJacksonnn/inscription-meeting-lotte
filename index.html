@@ -18,7 +18,7 @@
         .form-container {
             background-color: #fff;
             padding: 30px;
-            border: 2px solid #a21d2e;
+            border: 2px solid #022641; /* Nouveau bleu foncé */
             border-radius: 10px;
             max-width: 600px;
             width: 100%;
@@ -26,27 +26,28 @@
         }
         h1 {
             text-align: center;
-            color: #0f172a;
+            color: #022641; /* Titre en bleu foncé */
             margin-bottom: 10px;
         }
         .logo-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .logo-container img {
-            max-width: 200px;
+            max-width: 300px; /* Logo plus grand */
             height: auto;
         }
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #022641; /* Labels en bleu foncé */
         }
         input, select, textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 2px solid #a21d2e;
+            border: 2px solid #022641; /* Bordures en bleu foncé */
             border-radius: 5px;
             box-sizing: border-box;
         }
@@ -54,7 +55,7 @@
             padding: 3px;
         }
         button {
-            background-color: #a21d2e;
+            background-color: #022641; /* Bouton en bleu foncé */
             color: white;
             padding: 12px 20px;
             border: none;
@@ -65,10 +66,10 @@
             font-weight: bold;
         }
         button:hover {
-            background-color: #7f1624;
+            background-color: #01182a; /* Version plus foncée au survol */
         }
         
-        /* Style pour les boutons radio oui/non - Nouvelle couleur */
+        /* Style pour les boutons radio oui/non */
         .radio-group {
             display: flex;
             margin-bottom: 15px;
@@ -81,7 +82,7 @@
             justify-content: center;
             align-items: center;
             background-color: #fff;
-            border: 2px solid #3b82f6; /* Bleu */
+            border: 2px solid #022641; /* Bordures en bleu foncé */
             border-radius: 5px;
             padding: 10px;
             cursor: pointer;
@@ -89,7 +90,7 @@
             margin: 0;
             text-align: center;
             transition: all 0.2s ease;
-            color: #0f172a;
+            color: #022641; /* Texte en bleu foncé */
         }
         
         .radio-group input[type="radio"] {
@@ -97,9 +98,9 @@
         }
         
         .radio-group input[type="radio"]:checked + label {
-            background-color: #3b82f6; /* Bleu */
+            background-color: #022641; /* Fond en bleu foncé quand sélectionné */
             color: white;
-            border-color: #3b82f6;
+            border-color: #022641;
         }
         
         @media (max-width: 600px) {
@@ -112,7 +113,7 @@
                 padding: 20px 0;
             }
             .logo-container img {
-                max-width: 150px;
+                max-width: 220px; /* Logo un peu plus petit sur mobile mais toujours grand */
             }
         }
     </style>
@@ -124,7 +125,7 @@
         <!-- Conteneur pour le logo -->
         <div class="logo-container">
             <!-- Remplacez "votre-logo.png" par le chemin vers votre logo -->
-            <img src="new logo.jpg" alt="Logo de l'entreprise">
+            <img src="votre-logo.png" alt="Logo de l'entreprise">
         </div>
         
         <form name="buyer-meeting" method="POST" data-netlify="true" action="/merci.html">
