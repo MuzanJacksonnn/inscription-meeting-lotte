@@ -120,15 +120,6 @@
             border-radius: 0 0 8px 8px;
             position: relative;
         }
-        .loading {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .loading img {
-            width: 50px;
-            height: auto;
-        }
         @media (max-width: 600px) {
             .form-container {
                 padding: 20px;
@@ -156,7 +147,7 @@
         <div class="logo-container">
             <img src="new logo.jpg" alt="Logo de l'entreprise">
         </div>
-        <form id="buyer-meeting">
+        <form id="buyer-meeting" method="POST" action="https://script.google.com/macros/s/AKfycbxGC9brPK5-CYMI3TNYzmzCz4UvG71K6Oy5Ly3SW2G4C5HWaMKMsjgdPuHXd5vd5t1g/exec">
             <label>Nom complet :</label>
             <input type="text" name="nom_complet" required>
             <label>Nom de l'entreprise :</label>
@@ -195,27 +186,15 @@
                 <label for="inclusion-non">Non</label>
             </div>
             <button type="submit">Envoyer</button>
-            <div class="loading">
-                <img src="loading.gif" alt="Chargement...">
-                <p>Envoi en cours...</p>
-            </div>
         </form>
     </div>
     <script>
         document.getElementById('buyer-meeting').addEventListener('submit', function(event) {
             event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            const loadingIndicator = document.querySelector('.loading');
-            loadingIndicator.style.display = 'block';
-
-            fetch('YOUR_GOOGLE_SCRIPT_URL', {
+            var formData = new FormData(event.target);
+            fetch(event.target.action, {
                 method: 'POST',
-                body: new URLSearchParams(data),
+                body: formData,
             })
             .then(response => response.json())
             .then(data => {
@@ -228,13 +207,9 @@
             .catch(error => {
                 console.error('Error:', error);
                 alert('Une erreur est survenue. Veuillez réessayer.');
-            })
-            .finally(() => {
-                loadingIndicator.style.display = 'none';
             });
         });
     </script>
 </body>
 </html>
-
 
