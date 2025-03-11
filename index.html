@@ -3,19 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire d'Informations Entreprise</title>
+    <title>Inscription Buyer Meeting Lotte</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
-        form { background: #fff; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        input, select, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 4px; border: 1px solid #ccc; }
-        label { font-weight: bold; display: block; margin-top: 15px; }
-        button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 20px; font-size: 16px; }
-        button:hover { background-color: #45a049; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border: 2px solid #a21d2e;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #a21d2e;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            padding: 3px;
+        }
+        button {
+            background-color: #a21d2e;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #7f1624;
+        }
         
         /* Style pour les boutons radio oui/non */
         .radio-group {
             display: flex;
-            margin: 10px 0;
+            margin-bottom: 15px;
             gap: 10px;
         }
         
@@ -24,15 +72,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
-            border: 2px solid #ddd;
-            border-radius: 4px;
+            background-color: #fff;
+            border: 2px solid #a21d2e;
+            border-radius: 5px;
             padding: 10px;
             cursor: pointer;
             font-weight: normal;
             margin: 0;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            color: #0f172a;
         }
         
         .radio-group input[type="radio"] {
@@ -40,72 +89,77 @@
         }
         
         .radio-group input[type="radio"]:checked + label {
-            background-color: #4CAF50;
+            background-color: #a21d2e;
             color: white;
-            border-color: #4CAF50;
+            border-color: #a21d2e;
         }
         
-        /* Responsive design */
         @media (max-width: 600px) {
-            body { padding: 10px; }
-            form { padding: 15px; }
+            .form-container {
+                padding: 20px;
+                margin: 15px;
+            }
+            body {
+                align-items: flex-start;
+                padding: 20px 0;
+            }
         }
     </style>
 </head>
 <body>
-
-<h2>Formulaire d'Informations Entreprise</h2>
-<form action="#" method="POST" enctype="multipart/form-data">
-    <label for="full-name">Nom complet :</label>
-    <input type="text" id="full-name" name="full_name" required>
-
-    <label for="company-name">Nom de l'entreprise :</label>
-    <input type="text" id="company-name" name="company_name" required>
-
-    <label for="brand-name">Nom de la marque :</label>
-    <input type="text" id="brand-name" name="brand_name" required>
-
-    <label for="email">Adresse e-mail du responsable :</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="phone">Numéro de téléphone :</label>
-    <input type="tel" id="phone" name="phone" required>
-
-    <label for="products">Type de produits commercialisés :</label>
-    <textarea id="products" name="products" rows="3" required></textarea>
-
-    <label>Disposez-vous d'un importateur/distributeur en Corée ?</label>
-    <div class="radio-group">
-        <input type="radio" id="importer-oui" name="importer" value="oui" required>
-        <label for="importer-oui">Oui</label>
-        <input type="radio" id="importer-non" name="importer" value="non" required>
-        <label for="importer-non">Non</label>
+    <div class="form-container">
+        <h1>Inscription Buyer Meeting Lotte</h1>
+        <form name="buyer-meeting" method="POST" data-netlify="true" action="/merci.html">
+            <label>Nom complet :</label>
+            <input type="text" name="nom-complet" required>
+            
+            <label>Nom de l'entreprise :</label>
+            <input type="text" name="nom-entreprise" required>
+            
+            <label>Nom de la marque :</label>
+            <input type="text" name="nom-marque" required>
+            
+            <label>Adresse e-mail du responsable :</label>
+            <input type="email" name="email" required>
+            
+            <label>Numéro de téléphone :</label>
+            <input type="tel" name="telephone" required>
+            
+            <label>Type de produits commercialisés :</label>
+            <input type="text" name="type-produits" required>
+            
+            <label>Disposez-vous d'un importateur/distributeur en Corée ?</label>
+            <div class="radio-group">
+                <input type="radio" id="importateur-oui" name="importateur-distributeur" value="Oui" required>
+                <label for="importateur-oui">Oui</label>
+                <input type="radio" id="importateur-non" name="importateur-distributeur" value="Non" required>
+                <label for="importateur-non">Non</label>
+            </div>
+            
+            <label>Nom de l'importateur/distributeur en Corée (le cas échéant) :</label>
+            <input type="text" name="nom-importateur">
+            
+            <label>Télécharger la présentation de l'entreprise :</label>
+            <input type="file" name="presentation-entreprise">
+            
+            <label>Confirmez votre disponibilité pour l'événement du 13 mai 2025 à Paris :</label>
+            <div class="radio-group">
+                <input type="radio" id="disponibilite-oui" name="disponibilite-event" value="Oui" required>
+                <label for="disponibilite-oui">Oui</label>
+                <input type="radio" id="disponibilite-non" name="disponibilite-event" value="Non" required>
+                <label for="disponibilite-non">Non</label>
+            </div>
+            
+            <label>Souhaitez-vous inclure vos produits dans la présentation en direct organisée par Lotte ? (Un supplément de 200 euros sera appliqué pour cette option.)</label>
+            <div class="radio-group">
+                <input type="radio" id="inclusion-oui" name="inclusion-produits" value="Oui" required>
+                <label for="inclusion-oui">Oui</label>
+                <input type="radio" id="inclusion-non" name="inclusion-produits" value="Non" required>
+                <label for="inclusion-non">Non</label>
+            </div>
+            
+            <button type="submit">Envoyer</button>
+        </form>
     </div>
-
-    <label for="importer-name">Nom de l'importateur/distributeur en Corée (le cas échéant) :</label>
-    <input type="text" id="importer-name" name="importer_name">
-
-    <label for="presentation">Télécharger la présentation de l'entreprise :</label>
-    <input type="file" id="presentation" name="presentation" accept=".pdf,.doc,.docx">
-
-    <label>Confirmez votre disponibilité pour l'événement du 13 mai 2025 à Paris :</label>
-    <div class="radio-group">
-        <input type="radio" id="event-oui" name="event_confirmation" value="oui" required>
-        <label for="event-oui">Oui</label>
-        <input type="radio" id="event-non" name="event_confirmation" value="non" required>
-        <label for="event-non">Non</label>
-    </div>
-
-    <label>Souhaitez-vous inclure vos produits dans la présentation en direct organisée par Lotte ? (Un supplément de 200 euros sera appliqué pour cette option.)</label>
-    <div class="radio-group">
-        <input type="radio" id="lotte-oui" name="lotte_presentation" value="oui" required>
-        <label for="lotte-oui">Oui</label>
-        <input type="radio" id="lotte-non" name="lotte_presentation" value="non" required>
-        <label for="lotte-non">Non</label>
-    </div>
-
-    <button type="submit">Envoyer</button>
-</form>
-
 </body>
 </html>
