@@ -188,28 +188,54 @@
             <button type="submit">Envoyer</button>
         </form>
     </div>
+    <div id="loading-screen" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #022641;">
+    ⏳ Envoi en cours, veuillez patienter...
+</div>
+
     <script>
-        document.getElementById('buyer-meeting').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var formData = new FormData(event.target);
-            fetch(event.target.action, {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    window.location.href = '/merci.html';
-                } else {
-                    alert('Une erreur est survenue. Veuillez réessayer.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Une erreur est survenue. Veuillez réessayer.');
-            });
+    document.getElementById('buyer-meeting').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche l'envoi classique du formulaire
+        
+        // Afficher l'écran de chargement
+        document.getElementById('loading-screen').style.display = 'flex';
+
+        var formData = new FormData(event.target);
+
+        fetch(event.target.action, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json()) // Vérification de la réponse
+        .then(data => {
+            console.log('Réponse du serveur:', data);
+            if (data.result === 'success') {
+                window.location.href = '/merci.html'; // Redirection après succès
+            } else {
+                alert('Erreur lors de l\'envoi. Veuillez vérifier vos informations.');
+                document.getElementById('loading-screen').style.display = 'none'; // Cacher l'écran de chargement
+            }
+        })
+        .catch(error => {
+            console.error('Erreur réseau ou serveur:', error);
+            alert('Une erreur est survenue. Vérifiez votre connexion ou réessayez plus tard.');
+            document.getElementById('loading-screen').style.display = 'none'; // Cacher l'écran de chargement
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
 
