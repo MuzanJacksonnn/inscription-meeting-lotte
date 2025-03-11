@@ -213,12 +213,9 @@
             const loadingIndicator = document.querySelector('.loading');
             loadingIndicator.style.display = 'block';
 
-            fetch('/.netlify/functions/submit-form', {
+            fetch('YOUR_GOOGLE_SCRIPT_URL', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+                body: new URLSearchParams(data),
             })
             .then(response => response.json())
             .then(data => {
