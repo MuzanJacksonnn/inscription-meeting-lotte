@@ -7,56 +7,60 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
         }
         .form-container {
             background-color: #fff;
-            padding: 2rem;
-            border: 2px solid #c8102e;
-            border-radius: 8px;
-            width: 100%;
+            padding: 30px;
+            border: 2px solid #a21d2e;
+            border-radius: 10px;
             max-width: 600px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         h1 {
             text-align: center;
-            color: #0b2239;
-            margin-bottom: 1.5rem;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            color: #0f172a;
+            margin-bottom: 20px;
         }
         label {
+            display: block;
+            margin-bottom: 5px;
             font-weight: bold;
-            margin-bottom: 0.5rem;
         }
         input, select, textarea {
-            padding: 0.5rem;
-            border: 2px solid #c8102e;
-            border-radius: 4px;
-            font-size: 1rem;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #a21d2e;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
         input[type="file"] {
-            border: none;
+            padding: 3px;
         }
         button {
-            padding: 0.75rem;
-            background-color: #c8102e;
-            color: #fff;
+            background-color: #a21d2e;
+            color: white;
+            padding: 10px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
+            width: 100%;
         }
         button:hover {
-            background-color: #a00e24;
+            background-color: #7f1624;
+        }
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -65,43 +69,43 @@
         <h1>Inscription Buyer Meeting Lotte</h1>
         <form name="buyer-meeting" method="POST" data-netlify="true" action="/merci.html">
             <label>Nom complet :</label>
-            <input type="text" name="nom_complet" required>
+            <input type="text" name="nom-complet" required>
 
             <label>Nom de l'entreprise :</label>
-            <input type="text" name="nom_entreprise" required>
+            <input type="text" name="nom-entreprise" required>
 
             <label>Nom de la marque :</label>
-            <input type="text" name="nom_marque" required>
+            <input type="text" name="nom-marque" required>
 
             <label>Adresse e-mail du responsable :</label>
-            <input type="email" name="email_responsable" required>
+            <input type="email" name="email" required>
 
             <label>Numéro de téléphone :</label>
-            <input type="tel" name="numero_telephone" required>
+            <input type="tel" name="telephone" required>
 
             <label>Type de produits commercialisés :</label>
-            <input type="text" name="type_produits" required>
+            <input type="text" name="type-produits" required>
 
             <label>Disposez-vous d'un importateur/distributeur en Corée ?</label>
-            <select name="importateur_coree" required>
+            <select name="importateur-distributeur" required>
                 <option value="Oui">Oui</option>
                 <option value="Non">Non</option>
             </select>
 
             <label>Nom de l'importateur/distributeur en Corée (le cas échéant) :</label>
-            <input type="text" name="nom_importateur">
+            <input type="text" name="nom-importateur">
 
             <label>Télécharger la présentation de l'entreprise :</label>
-            <input type="file" name="presentation_entreprise">
+            <input type="file" name="presentation-entreprise">
 
             <label>Confirmez votre disponibilité pour l'événement du 13 mai 2025 à Paris :</label>
-            <select name="disponibilite_evenement" required>
+            <select name="disponibilite-event" required>
                 <option value="Oui">Oui</option>
                 <option value="Non">Non</option>
             </select>
 
-            <label>Souhaitez-vous inclure vos produits dans la présentation en direct organisée par Lotte (200€ de supplément) ?</label>
-            <select name="inclusion_presentation" required>
+            <label>Souhaitez-vous inclure vos produits dans la présentation en direct organisée par Lotte ? (Un supplément de 200 euros sera appliqué pour cette option.)</label>
+            <select name="inclusion-produits" required>
                 <option value="Oui">Oui</option>
                 <option value="Non">Non</option>
             </select>
