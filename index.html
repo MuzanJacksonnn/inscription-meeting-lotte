@@ -18,7 +18,7 @@
         .form-container {
             background-color: #fff;
             padding: 30px;
-            border: 2px solid #022641; /* Bleu foncé de votre entreprise */
+            border: 2px solid #022641;
             border-radius: 10px;
             max-width: 600px;
             width: 100%;
@@ -27,7 +27,7 @@
         }
         h1 {
             text-align: center;
-            color: #022641; /* Titre en bleu foncé comme demandé */
+            color: #022641;
             margin-bottom: 10px;
         }
         .logo-container {
@@ -42,25 +42,25 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #022641; /* Labels en bleu foncé */
+            color: #022641;
         }
         input, select, textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #022641; /* Bordures en bleu foncé */
+            border: 1px solid #022641;
             border-radius: 5px;
             box-sizing: border-box;
         }
         input:focus, select:focus, textarea:focus {
-            border: 2px solid #d31444; /* Bordure rouge au focus */
+            border: 2px solid #d31444;
             outline: none;
         }
         input[type="file"] {
             padding: 3px;
         }
         button {
-            background-color: #d31444; /* Bouton en rouge de votre entreprise */
+            background-color: #d31444;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -72,23 +72,20 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #b01138; /* Version plus foncée au survol */
+            background-color: #b01138;
         }
-        
-        /* Style pour les boutons radio oui/non */
         .radio-group {
             display: flex;
             margin-bottom: 15px;
             gap: 10px;
         }
-        
         .radio-group label {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #fff;
-            border: 1px solid #022641; /* Bordures en bleu foncé */
+            border: 1px solid #022641;
             border-radius: 5px;
             padding: 10px;
             cursor: pointer;
@@ -96,40 +93,33 @@
             margin: 0;
             text-align: center;
             transition: all 0.2s ease;
-            color: #022641; /* Texte en bleu foncé */
+            color: #022641;
         }
-        
         .radio-group input[type="radio"] {
             display: none;
         }
-        
         .radio-group input[type="radio"]:checked + label {
-            background-color: #022641; /* Fond en bleu foncé quand sélectionné */
+            background-color: #022641;
             color: white;
             border-color: #022641;
         }
-        
-        /* Bande supérieure épaissie avec dégradé des couleurs de l'entreprise */
         .form-container:before {
             content: '';
             display: block;
-            height: 8px; /* Épaisseur augmentée */
+            height: 8px;
             background: linear-gradient(to right, #022641 0%, #022641 50%, #d31444 50%, #d31444 100%);
             margin: -30px -30px 20px -30px;
             border-radius: 8px 8px 0 0;
         }
-        
-        /* Ajout d'une bande inférieure épaisse avec dégradé des couleurs de l'entreprise */
         .form-container:after {
             content: '';
             display: block;
-            height: 8px; /* Même épaisseur que la bande supérieure */
+            height: 8px;
             background: linear-gradient(to right, #d31444 0%, #d31444 50%, #022641 50%, #022641 100%);
             margin: 20px -30px -30px -30px;
             border-radius: 0 0 8px 8px;
             position: relative;
         }
-        
         @media (max-width: 600px) {
             .form-container {
                 padding: 20px;
@@ -154,64 +144,72 @@
 <body>
     <div class="form-container">
         <h1>Inscription Buyer Meeting Lotte</h1>
-        
-        <!-- Conteneur pour le logo -->
         <div class="logo-container">
-            <!-- Remplacez "votre-logo.png" par le chemin vers votre logo -->
             <img src="new logo.jpg" alt="Logo de l'entreprise">
         </div>
-        
-        <form name="buyer-meeting" method="POST" data-netlify="true" action="/merci.html">
+        <form id="buyer-meeting" method="POST" action="YOUR_GOOGLE_SCRIPT_URL">
             <label>Nom complet :</label>
-            <input type="text" name="nom-complet" required>
-            
+            <input type="text" name="nom_complet" required>
             <label>Nom de l'entreprise :</label>
-            <input type="text" name="nom-entreprise" required>
-            
+            <input type="text" name="nom_entreprise" required>
             <label>Nom de la marque :</label>
-            <input type="text" name="nom-marque" required>
-            
+            <input type="text" name="nom_marque" required>
             <label>Adresse e-mail du responsable :</label>
             <input type="email" name="email" required>
-            
             <label>Numéro de téléphone :</label>
             <input type="tel" name="telephone" required>
-            
             <label>Type de produits commercialisés :</label>
-            <input type="text" name="type-produits" required>
-            
+            <input type="text" name="type_produits" required>
             <label>Disposez-vous d'un importateur/distributeur en Corée ?</label>
             <div class="radio-group">
-                <input type="radio" id="importateur-oui" name="importateur-distributeur" value="Oui" required>
+                <input type="radio" id="importateur-oui" name="importateur_distributeur" value="Oui" required>
                 <label for="importateur-oui">Oui</label>
-                <input type="radio" id="importateur-non" name="importateur-distributeur" value="Non" required>
+                <input type="radio" id="importateur-non" name="importateur_distributeur" value="Non" required>
                 <label for="importateur-non">Non</label>
             </div>
-            
             <label>Nom de l'importateur/distributeur en Corée (le cas échéant) :</label>
-            <input type="text" name="nom-importateur">
-            
+            <input type="text" name="nom_importateur">
             <label>Télécharger la présentation de l'entreprise :</label>
-            <input type="file" name="presentation-entreprise">
-            
+            <input type="file" name="presentation_entreprise">
             <label>Confirmez votre disponibilité pour l'événement du 13 mai 2025 à Paris :</label>
             <div class="radio-group">
-                <input type="radio" id="disponibilite-oui" name="disponibilite-event" value="Oui" required>
+                <input type="radio" id="disponibilite-oui" name="disponibilite_event" value="Oui" required>
                 <label for="disponibilite-oui">Oui</label>
-                <input type="radio" id="disponibilite-non" name="disponibilite-event" value="Non" required>
+                <input type="radio" id="disponibilite-non" name="disponibilite_event" value="Non" required>
                 <label for="disponibilite-non">Non</label>
             </div>
-            
             <label>Souhaitez-vous inclure vos produits dans la présentation en direct organisée par Lotte ? (Un supplément de 200 euros sera appliqué pour cette option.)</label>
             <div class="radio-group">
-                <input type="radio" id="inclusion-oui" name="inclusion-produits" value="Oui" required>
+                <input type="radio" id="inclusion-oui" name="inclusion_produits" value="Oui" required>
                 <label for="inclusion-oui">Oui</label>
-                <input type="radio" id="inclusion-non" name="inclusion-produits" value="Non" required>
+                <input type="radio" id="inclusion-non" name="inclusion_produits" value="Non" required>
                 <label for="inclusion-non">Non</label>
             </div>
-            
             <button type="submit">Envoyer</button>
         </form>
     </div>
+    <script>
+        document.getElementById('buyer-meeting').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(event.target);
+            fetch(event.target.action, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    window.location.href = '/merci.html';
+                } else {
+                    alert('Une erreur est survenue. Veuillez réessayer.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Une erreur est survenue. Veuillez réessayer.');
+            });
+        });
+    </script>
 </body>
 </html>
+
