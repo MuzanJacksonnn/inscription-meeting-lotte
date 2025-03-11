@@ -23,10 +23,11 @@
             max-width: 600px;
             width: 100%;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
         }
         h1 {
             text-align: center;
-            color: #d31444; /* Titre en rouge de votre entreprise */
+            color: #022641; /* Titre en bleu foncé comme demandé */
             margin-bottom: 10px;
         }
         .logo-container {
@@ -108,14 +109,25 @@
             border-color: #022641;
         }
         
-        /* Ajout d'une bordure supérieure avec dégradé des couleurs de l'entreprise */
+        /* Bande supérieure épaissie avec dégradé des couleurs de l'entreprise */
         .form-container:before {
             content: '';
             display: block;
-            height: 4px;
+            height: 8px; /* Épaisseur augmentée */
             background: linear-gradient(to right, #022641 0%, #022641 50%, #d31444 50%, #d31444 100%);
             margin: -30px -30px 20px -30px;
             border-radius: 8px 8px 0 0;
+        }
+        
+        /* Ajout d'une bande inférieure épaisse avec dégradé des couleurs de l'entreprise */
+        .form-container:after {
+            content: '';
+            display: block;
+            height: 8px; /* Même épaisseur que la bande supérieure */
+            background: linear-gradient(to right, #d31444 0%, #d31444 50%, #022641 50%, #022641 100%);
+            margin: 20px -30px -30px -30px;
+            border-radius: 0 0 8px 8px;
+            position: relative;
         }
         
         @media (max-width: 600px) {
@@ -132,6 +144,9 @@
             }
             .form-container:before {
                 margin: -20px -20px 20px -20px;
+            }
+            .form-container:after {
+                margin: 20px -20px -20px -20px;
             }
         }
     </style>
