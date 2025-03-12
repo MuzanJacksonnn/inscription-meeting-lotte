@@ -216,12 +216,14 @@ document.getElementById('buyer-meeting').addEventListener('submit', function(eve
         method: 'POST',
         body: formData,
     })
-    .then(response => {
-        if (response.ok) {
-            // Attendre 3 secondes avant la redirection
+    .then(response => response.json())
+    .then(data => {
+        console.log('Réponse du serveur:', data);
+        if (data.result === 'success') {
+            // Petite pause pour le confort visuel, puis redirection
             setTimeout(() => {
                 window.location.href = '/merci.html';
-            }, 3000);
+            }, 1000); // Délai réduit à 1 seconde
         } else {
             throw new Error('Erreur lors de l\'envoi. Veuillez vérifier vos informations.');
         }
