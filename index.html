@@ -205,36 +205,38 @@
     ⏳ Envoi en cours, veuillez patienter...
 </div>
 
-    <script>
-    document.getElementById('buyer-meeting').addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêche l'envoi classique du formulaire
-        
-        // Afficher l'écran de chargement
-        document.getElementById('loading-screen').style.display = 'flex';
+   <script>
+document.getElementById('buyer-meeting').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche l'envoi classique du formulaire
+    
+    var formData = new FormData(event.target);
 
-        var formData = new FormData(event.target);
+    fetch(event.target.action, {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Réponse du serveur:', data);
+        if (data.result === 'success') {
+            // Afficher l'écran de chargement
+            document.getElementById('loading-screen').style.display = 'flex';
 
-        fetch(event.target.action, {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json()) // Vérification de la réponse
-        .then(data => {
-            console.log('Réponse du serveur:', data);
-            if (data.result === 'success') {
-                window.location.href = '/merci.html'; // Redirection après succès
-            } else {
-                alert('Erreur lors de l\'envoi. Veuillez vérifier vos informations.');
-                document.getElementById('loading-screen').style.display = 'none'; // Cacher l'écran de chargement
-            }
-        })
-        .catch(error => {
-            console.error('Erreur réseau ou serveur:', error);
-            alert('Une erreur est survenue. Vérifiez votre connexion ou réessayez plus tard.');
-            document.getElementById('loading-screen').style.display = 'none'; // Cacher l'écran de chargement
-        });
+            // Attendre 3 secondes avant de rediriger
+            setTimeout(() => {
+                window.location.href = '/merci.html';
+            }, 3000);
+        } else {
+            alert('Erreur lors de l\'envoi. Veuillez vérifier vos informations.');
+        }
+    })
+    .catch(error => {
+        console.error('Erreur réseau ou serveur:', error);
+        alert('Une erreur est survenue. Vérifiez votre connexion ou réessayez plus tard.');
     });
+});
 </script>
+
 
 </body>
 </html>
