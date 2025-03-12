@@ -203,11 +203,12 @@ f<!DOCTYPE html>
     color: #022641;">
     ⏳ Envoi en cours, veuillez patienter...
 </div>
-
-  <script>
 document.getElementById('buyer-meeting').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche l'envoi classique du formulaire
-    
+
+    // Afficher immédiatement l'écran de chargement
+    document.getElementById('loading-screen').style.display = 'flex';
+
     var formData = new FormData(event.target);
 
     fetch(event.target.action, {
@@ -216,9 +217,6 @@ document.getElementById('buyer-meeting').addEventListener('submit', function(eve
     })
     .then(response => {
         if (response.ok) {
-            // Afficher l'écran de chargement après soumission réussie
-            document.getElementById('loading-screen').style.display = 'flex';
-
             // Attendre 3 secondes avant la redirection
             setTimeout(() => {
                 window.location.href = '/merci.html';
@@ -230,11 +228,9 @@ document.getElementById('buyer-meeting').addEventListener('submit', function(eve
     .catch(error => {
         console.error('Erreur réseau ou serveur:', error);
         alert('Une erreur est survenue. Vérifiez votre connexion ou réessayez plus tard.');
+        document.getElementById('loading-screen').style.display = 'none'; // Cacher l'écran en cas d'erreur
     });
 });
-</script>
-
-
 
 </body>
 </html>
