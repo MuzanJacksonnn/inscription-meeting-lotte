@@ -105,52 +105,17 @@
         </div>
         
         <div class="payment-message">
-            <p>Merci pour votre inscription! </p>
-             <p> Veuillez procéder au paiement pour finaliser votre participation.</p>
-             <p>Après validation de votre paiement, vous serez redirigé vers une page de réservation de rendez-vous. Merci de bien sélectionner votre créneau.</p>
+           <p>Merci pour votre inscription!</p>
+<p>Nous subissons en ce moment un problème technique nous empêchant d'avoir recours au paiement en ligne.</p>
+<p>Pas d'inquiétude, si besoin, envoyez un mail à t.zuliani@fkcci.com, et effectuez un virement bancaire au compte suivant :</p>
+<p>SHINHAN BANK, Seoul Global Center Branch</p>
+<p>Bénéficiaire : French Korean Chamber of commerce and industry FKCCI</p>
+<p>Numéro de compte : 180-005-922459</p>
+<p>Code SWIFT : SHBKKRSEXXX</p>
+<p>Nous vous ferons parvenir une facture et un lien de réservation dans les plus brefs délais.</p>
         </div>
         
         <div id="amount-display">Montant: <span id="payment-amount">600,00 €</span></div>
         
-        <div id="paypal-button-container"></div>
-    </div>
-
-    <script>
-        // Récupérer les paramètres d'URL pour savoir si l'option de 200€ a été choisie
-        const urlParams = new URLSearchParams(window.location.search);
-        const inclusionProduits = urlParams.get('inclusion_produits');
-        const companyId = urlParams.get('companyId'); 
-        
-        // Définir le montant en fonction des choix
-        let amount = 600;
-        if (inclusionProduits === 'Oui') {
-            amount = 800;  // 600€ base + 200€ pour l'inclusion des produits
-            document.getElementById('payment-amount').textContent = '800,00 €';
-        }
-
-        // Configuration du bouton PayPal
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: amount.toString()  // Montant en euros
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    // Redirection après paiement réussi
-                   // Après paiement réussi, redirige vers la page de réservation des créneaux
-                    window.location.href = '/reservation.html?companyId=' + companyId;
-
-                });
-            },
-            onError: function(err) {
-                console.error(err);
-                alert('Une erreur est survenue lors du paiement.');
-            }
-        }).render('#paypal-button-container');
     </script>
 </body>
