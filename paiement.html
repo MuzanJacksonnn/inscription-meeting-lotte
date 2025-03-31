@@ -119,6 +119,7 @@
         // Récupérer les paramètres d'URL pour savoir si l'option de 200€ a été choisie
         const urlParams = new URLSearchParams(window.location.search);
         const inclusionProduits = urlParams.get('inclusion_produits');
+        const companyId = urlParams.get('companyId'); 
         
         // Définir le montant en fonction des choix
         let amount = 1;
