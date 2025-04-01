@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <script src="https://www.paypal.com/sdk/js?client-id=AQVhVSGGuqSSuBdk1xdNoniqjRlbPuCupet-OnOjvbNDZkI0VwuxwwOwql9Y8TyYddXHxTy5fJa2k4oG&currency=EUR"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paiement - Buyer Meeting Lotte</title>
@@ -45,9 +44,6 @@
             background-color: #f5f5f5;
             border-radius: 5px;
         }
-        .payment-options {
-            margin-top: 30px;
-        }
         .payment-container:before {
             content: '';
             display: block;
@@ -75,6 +71,32 @@
         .payment-message {
             text-align: center;
             margin-bottom: 20px;
+        }
+        .bank-info {
+            border: 2px solid #022641;
+            background-color: #f0f7ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .bank-info-header {
+            background-color: #022641;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            margin: -15px -15px 15px -15px;
+            border-radius: 3px 3px 0 0;
+        }
+        .important-notice {
+            background-color: #fff3cd;
+            border-left: 4px solid #d31444;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+        .email {
+            font-weight: bold;
+            color: #022641;
         }
         @media (max-width: 600px) {
             .payment-container {
@@ -105,17 +127,37 @@
         </div>
         
         <div class="payment-message">
-           <p>Merci pour votre inscription!</p>
-<p>Nous subissons en ce moment un problème technique nous empêchant d'avoir recours au paiement en ligne.</p>
-<p>Pas d'inquiétude effectuez un virement bancaire au compte suivant puis envoyez un email avec la preuve de virement à t.zuliani@fkcci.com :</p>
-<p>SHINHAN BANK, Seoul Global Center Branch</p>
-<p>Bénéficiaire : French Korean Chamber of commerce and industry FKCCI</p>
-<p>Numéro de compte : 180-005-922459</p>
-<p>Code SWIFT : SHBKKRSEXXX</p>
-<p>Nous vous ferons parvenir une facture et un lien de réservation dans les plus brefs délais.</p>
+            <p>Merci pour votre inscription!</p>
+            <p>Nous subissons en ce moment un problème technique nous empêchant d'avoir recours au paiement en ligne.</p>
         </div>
         
         <div id="amount-display">Montant: <span id="payment-amount">600,00 €</span></div>
         
+        <div class="bank-info">
+            <div class="bank-info-header">INFORMATIONS BANCAIRES</div>
+            <p>Pas d'inquiétude, effectuez un virement bancaire au compte suivant :</p>
+            <p><strong>SHINHAN BANK, Seoul Global Center Branch</strong></p>
+            <p><strong>Bénéficiaire :</strong> French Korean Chamber of commerce and industry FKCCI</p>
+            <p><strong>Numéro de compte :</strong> 180-005-922459</p>
+            <p><strong>Code SWIFT :</strong> SHBKKRSEXXX</p>
+        </div>
+        
+        <div class="important-notice">
+            <p>Suite à votre réservation, vous avez <strong>3 jours</strong> pour nous faire parvenir une preuve de paiement à l'adresse mail <span class="email">t.zuliani@fkcci.com</span> afin de conserver votre créneau de rencontre avec les distributeurs de LOTTE.</p>
+            <p>Nous vous ferons parvenir une facture et un lien de réservation dans les plus brefs délais.</p>
+        </div>
+    </div>
+
+    <script>
+        // Récupérer les paramètres d'URL pour savoir si l'option de 200€ a été choisie
+        const urlParams = new URLSearchParams(window.location.search);
+        const inclusionProduits = urlParams.get('inclusion_produits');
+        
+        // Définir le montant en fonction des choix
+        let amount = 600;
+        if (inclusionProduits === 'Oui') {
+            amount = 800;  // 600€ base + 200€ pour l'inclusion des produits
+            document.getElementById('payment-amount').textContent = '800,00 €';
+        }
     </script>
 </body>
