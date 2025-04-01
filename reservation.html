@@ -306,7 +306,7 @@
                     set(timeSlotRef, bookings)
                         .then(() => {
                             alert("Réservation confirmée pour le créneau " + selectedTimeSlot);
-                            window.location.href = "/merci.html";
+                            window.location.href = "/paiement.html";
                         })
                         .catch(error => {
                             console.error("Erreur lors de la réservation :", error);
