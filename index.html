@@ -280,7 +280,7 @@ document.getElementById('buyer-meeting').addEventListener('submit', function(eve
 
             // Rediriger vers la page de paiement avec l'identifiant de l'entreprise
             const inclusionProduits = formData.get('inclusion_produits');
-            window.location.href = '/paiement.html?companyId=' + companyId + '&inclusion_produits=' + inclusionProduits;
+            window.location.href = '/reservation.html?companyId=' + companyId + '&inclusion_produits=' + inclusionProduits;
         })
         .catch(error => {
             console.error("Erreur lors de l'enregistrement de l'entreprise :", error);
